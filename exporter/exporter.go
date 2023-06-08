@@ -11,7 +11,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package main
+package exporter
 
 import (
 	"fmt"
@@ -61,11 +61,7 @@ func init() {
 	prometheus.MustRegister(version.NewCollector("blackbox_exporter"))
 }
 
-func main() {
-	os.Exit(run())
-}
-
-func run() int {
+func Run() int {
 	kingpin.CommandLine.UsageWriter(os.Stdout)
 	promlogConfig := &promlog.Config{}
 	flag.AddFlags(kingpin.CommandLine, promlogConfig)
